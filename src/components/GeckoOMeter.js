@@ -7,7 +7,10 @@ class GeckoOMeter extends Component {
   }
 
   componentDidMount() {
-    console.log('hi');
+    fetch('https://widgister.herokuapp.com/challenge/frontend?fixed=1')
+      .then((res) => res.json())
+      .then((data) => this.setState(data))
+      .catch((err) => console.error(err));
   }
 
   render() {

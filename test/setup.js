@@ -1,4 +1,9 @@
 /*
+ * Allow the use of Fetch API in node in Mocha tests (mount)
+ */
+import 'isomorphic-fetch';
+
+/*
  * Stop Mocha from trying to load stylesheets
  */
 require.extensions['.scss'] = () => null;

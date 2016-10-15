@@ -27,11 +27,11 @@ describe('<GeckoOMeter />', () => {
   });
 
   it('should call `componentDidMount`', () => {
-    sinon.spy(GeckoOMeter.prototype, 'componentDidMount');
+    const spy = sinon.spy(GeckoOMeter.prototype, 'componentDidMount');
     const wrapper = mount(<GeckoOMeter />);
 
     expect(
-      GeckoOMeter.prototype.componentDidMount.calledOnce
+      spy.calledOnce
     ).to.equal(true);
   });
 });
