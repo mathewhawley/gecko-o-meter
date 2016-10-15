@@ -1,0 +1,28 @@
+@import '../styles/variables';
+
+.base {
+  background-color: $color-background-100;
+  height: 400px;
+  padding: 20px;
+  width: 400px;
+}
+
+.dial {
+  border-color: $color-highlight-100;
+  border-radius: 360px 360px 0 0;
+  border-style: solid;
+  border-width: 10px 10px 0;
+  position: relative;
+  width: 360px;
+  height: 180px;
+}
+
+.needle {
+  background-color: $color-white;
+  bottom: 0;
+  height: 4px;
+  left: -20px;
+  position: absolute;
+  transform-origin: right;
+  width: 190px;
+}

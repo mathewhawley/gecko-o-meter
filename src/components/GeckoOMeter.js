@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './GeckoOMeter.scss';
 
 class GeckoOMeter extends Component {
   constructor() {
@@ -31,7 +32,13 @@ class GeckoOMeter extends Component {
   }
 
   render() {
-    return <div></div>;
+    return (
+      <div className={styles.base}>
+        <div className={styles.dial}>
+          <div className={styles.needle}></div>
+        </div>
+      </div>
+    );
   }
 }
 
