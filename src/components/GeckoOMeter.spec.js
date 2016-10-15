@@ -1,6 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import sinon from 'sinon';
 import GeckoOMeter from './GeckoOMeter';
 
 describe('<GeckoOMeter />', () => {
@@ -13,11 +14,24 @@ describe('<GeckoOMeter />', () => {
     const wrapper = shallow(<GeckoOMeter />);
 
     expect(
+      wrapper.state()
+    ).to.be.instanceof(Object);
+
+    expect(
       Object.keys(wrapper.state()).length
     ).to.equal(0);
 
     expect(
       wrapper.state().constructor === Object
+    ).to.equal(true);
+  });
+
+  it('should call `componentDidMount`', () => {
+    sinon.spy(GeckoOMeter.prototype, 'componentDidMount');
+    const wrapper = mount(<GeckoOMeter />);
+
+    expect(
+      GeckoOMeter.prototype.componentDidMount.calledOnce
     ).to.equal(true);
   });
 });

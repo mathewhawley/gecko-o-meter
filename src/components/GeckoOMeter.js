@@ -6,6 +6,10 @@ class GeckoOMeter extends Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    console.log('hi');
+  }
+
   render() {
     return <div></div>;
   }
