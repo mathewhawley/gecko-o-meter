@@ -13,6 +13,10 @@ class GeckoOMeter extends Component {
       .catch((err) => console.error(err));
   }
 
+  calculatePercentage(min, max, value) {
+    return ((value - min) * 100) / (max - min);
+  }
+
   render() {
     return <div></div>;
   }

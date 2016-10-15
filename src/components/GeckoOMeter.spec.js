@@ -5,14 +5,17 @@ import sinon from 'sinon';
 import GeckoOMeter from './GeckoOMeter';
 
 describe('<GeckoOMeter />', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<GeckoOMeter />);
+  });
+
   it('should exist', () => {
-    const wrapper = shallow(<GeckoOMeter />);
     expect(wrapper).to.exist;
   });
 
   it('should mount with an empty state object', () => {
-    const wrapper = shallow(<GeckoOMeter />);
-
     expect(
       wrapper.state()
     ).to.be.instanceof(Object);
@@ -30,8 +33,12 @@ describe('<GeckoOMeter />', () => {
     const spy = sinon.spy(GeckoOMeter.prototype, 'componentDidMount');
     const wrapper = mount(<GeckoOMeter />);
 
-    expect(
-      spy.calledOnce
-    ).to.equal(true);
+    expect(spy.calledOnce).to.equal(true);
+  });
+
+  it('should have a method to calculate the angle for the needle', () => {
+    const spy = sinon.spy(GeckoOMeter.prototype, 'calculatePercentage');
+
+    expect(spy(0, 10, 1)).to.equal(10);
   });
 });
