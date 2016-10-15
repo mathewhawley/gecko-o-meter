@@ -9,7 +9,12 @@ class GeckoOMeter extends Component {
   componentDidMount() {
     fetch('https://widgister.herokuapp.com/challenge/frontend?fixed=1')
       .then((res) => res.json())
-      .then((data) => this.setState(data))
+      .then((data) => this.setState({
+        ...data,
+        min: this.formatCurrency(data.min, data.unit),
+        max: this.formatCurrency(data.max, data.unit),
+        value: this.formatCurrency(data.value, data.unit),
+      }))
       .catch((err) => console.error(err));
   }
 
