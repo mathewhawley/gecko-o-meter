@@ -10,12 +10,7 @@ class GeckoOMeter extends Component {
   componentDidMount() {
     fetch('https://widgister.herokuapp.com/challenge/frontend?fixed=1')
       .then((res) => res.json())
-      .then((data) => this.setState({
-        ...data,
-        min: this.formatCurrency(data.min, data.unit),
-        max: this.formatCurrency(data.max, data.unit),
-        value: this.formatCurrency(data.value, data.unit),
-      }))
+      .then((data) => this.setState(data))
       .catch((err) => console.error(err));
   }
 
@@ -31,12 +26,30 @@ class GeckoOMeter extends Component {
     });
   }
 
+  renderLoader() {
+    return (
+      <div>Loading...</div>
+    );
+  }
+
+  renderDial() {
+    const { min, max, value, unit } = this.state;
+    const angle = this.calculatePercentage(min, max, value);
+
+    return (
+      <div className={styles.dial}>
+        <div className={styles.needle} style={{ transform: `rotate(${angle}deg)`}}></div>
+        <div>{this.formatCurrency(min, unit)}</div>
+        <div>{this.formatCurrency(max, unit)}</div>
+        <div>{this.formatCurrency(value, unit)}</div>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className={styles.base}>
-        <div className={styles.dial}>
-          <div className={styles.needle}></div>
-        </div>
+        {Object.keys(this.state).length === 0 ? this.renderLoader() : this.renderDial()}
       </div>
     );
   }
