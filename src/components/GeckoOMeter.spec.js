@@ -41,4 +41,12 @@ describe('<GeckoOMeter />', () => {
 
     expect(spy(0, 10, 1)).to.equal(10);
   });
+
+  it('should have a method to add currency symbol to numbers', () => {
+    const spy = sinon.spy(GeckoOMeter.prototype, 'formatCurrency');
+
+    expect(spy(25, 'GBP')).to.equal('£25');
+    expect(spy(25, 'USD')).to.equal('$25');
+    expect(spy(25, 'EUR')).to.equal('€25');
+  });
 });
