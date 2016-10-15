@@ -1,0 +1,3 @@
+src/**/*.spec.js
+--require test/setup.js
+--compilers js:babel-register
