@@ -17,6 +17,14 @@ class GeckoOMeter extends Component {
     return ((value - min) * 100) / (max - min);
   }
 
+  formatCurrency(num, ISO) {
+    return num.toLocaleString('en', {
+      style: 'currency',
+      currency: ISO,
+      maximumFractionDigits: 0,
+    });
+  }
+
   render() {
     return <div></div>;
   }
