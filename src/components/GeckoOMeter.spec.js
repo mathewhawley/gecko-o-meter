@@ -39,7 +39,8 @@ describe('<GeckoOMeter />', () => {
   it('should have a method to calculate the angle for the needle', () => {
     const spy = sinon.spy(GeckoOMeter.prototype, 'calculatePercentage');
 
-    expect(spy(0, 10, 1)).to.equal(10);
+    expect(spy(0, 10, 1)).to.equal(18);
+    expect(spy(0, 100, 50)).to.equal(90);
   });
 
   it('should have a method to add currency symbol to numbers', () => {
