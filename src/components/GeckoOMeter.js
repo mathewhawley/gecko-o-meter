@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import fetch from 'isomorphic-fetch';
 import styles from './GeckoOMeter.scss';
 
 class GeckoOMeter extends Component {
