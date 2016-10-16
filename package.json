@@ -9,8 +9,9 @@
   "scripts": {
     "test": "mocha",
     "test:watch": "npm test -- --watch --reporter min",
-    "clean": "babel-node tools/clean",
-    "start": "npm run clean && babel-node tools/devServer"
+    "start": "npm run clean && npm run copy && babel-node tools/devServer",
+    "clean": "rm -rf build",
+    "copy": "cp -r src/html build"
   },
   "author": "Mathew Hawley",
   "license": "ISC",
@@ -25,11 +26,9 @@
     "babel-register": "^6.16.3",
     "chai": "^3.5.0",
     "css-loader": "^0.25.0",
-    "del": "^2.2.2",
     "enzyme": "^2.4.1",
     "isomorphic-fetch": "^2.2.1",
     "jsdom": "^9.7.1",
-    "mkdirp": "^0.5.1",
     "mocha": "^3.1.2",
     "node-sass": "^3.10.1",
     "react-addons-test-utils": "^15.3.2",
