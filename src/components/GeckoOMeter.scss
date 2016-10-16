@@ -1,13 +1,17 @@
 @import '../styles/variables';
 
 .base {
-  background-color: $color-background;
-  height: $base-height;
-  width: $base-width;
-  font-size: 1.5em;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: $color-background;
+  display: flex;
+  font-size: 1.5em;
+  height: $base-height;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: $base-width;
 }
 
 .dial {
