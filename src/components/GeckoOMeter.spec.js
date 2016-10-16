@@ -8,7 +8,7 @@ describe('<GeckoOMeter />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<GeckoOMeter />);
+    wrapper = shallow(<GeckoOMeter url='https://widgister.herokuapp.com/challenge/frontend?fixed=1' />);
   });
 
   it('should exist', () => {
@@ -31,7 +31,7 @@ describe('<GeckoOMeter />', () => {
 
   it('should call `componentDidMount`', () => {
     const spy = sinon.spy(GeckoOMeter.prototype, 'componentDidMount');
-    const wrapper = mount(<GeckoOMeter />);
+    const wrapper = mount(<GeckoOMeter url='https://widgister.herokuapp.com/challenge/frontend?fixed=1' />);
 
     expect(spy.calledOnce).to.equal(true);
   });

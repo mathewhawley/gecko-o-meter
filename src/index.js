@@ -3,4 +3,7 @@ import ReactDOM from 'react-dom';
 import GeckoOMeter from './components/GeckoOMeter';
 import './styles/main';
 
-ReactDOM.render(<GeckoOMeter />, document.getElementById('root'));
+ReactDOM.render(
+  <GeckoOMeter url='https://widgister.herokuapp.com/challenge/frontend?fixed=1' />,
+  document.getElementById('root')
+);

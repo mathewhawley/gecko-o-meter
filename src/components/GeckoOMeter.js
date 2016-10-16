@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import styles from './GeckoOMeter.scss';
 
 class GeckoOMeter extends Component {
@@ -8,7 +8,7 @@ class GeckoOMeter extends Component {
   }
 
   componentDidMount() {
-    fetch('https://widgister.herokuapp.com/challenge/frontend?fixed=1')
+    fetch(this.props.url)
       .then((res) => res.json())
       .then((data) => this.setState(data))
       .catch((err) => console.error(err));
@@ -54,5 +54,9 @@ class GeckoOMeter extends Component {
     );
   }
 }
+
+GeckoOMeter.propTypes = {
+  url: PropTypes.string.isRequired,
+};
 
 export default GeckoOMeter;
