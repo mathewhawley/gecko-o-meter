@@ -39,9 +39,9 @@ class GeckoOMeter extends Component {
     return (
       <div className={styles.dial}>
         <div className={styles.needle} style={{ transform: `rotate(${angle}deg)`}}></div>
-        <div>{this.formatCurrency(min, unit)}</div>
-        <div>{this.formatCurrency(max, unit)}</div>
-        <div>{this.formatCurrency(value, unit)}</div>
+        <div className={styles.min}>{this.formatCurrency(min, unit)}</div>
+        <div className={styles.max}>{this.formatCurrency(max, unit)}</div>
+        <div className={styles.value}>{this.formatCurrency(value, unit)}</div>
       </div>
     );
   }

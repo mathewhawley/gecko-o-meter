@@ -1,17 +1,20 @@
 @import '../styles/variables';
 
 .base {
-  background-color: $color-background-100;
-  height: $dimensions;
-  padding: $padding-main;
-  width: $dimensions;
+  background-color: $color-background;
+  height: $base-height;
+  width: $base-width;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dial {
-  border-color: $color-highlight-100;
+  border-color: $color-highlight;
   border-radius: $dial-width $dial-width 0 0;
   border-style: solid;
-  border-width: 10px 10px 0;
+  border-width: $dial-arc-width $dial-arc-width 0;
   position: relative;
   width: $dial-width;
   height: $dial-width / 2;
@@ -21,9 +24,34 @@
   background-color: $color-white;
   bottom: 0;
   height: 4px;
-  left: $padding-main * -1;
-  outline: 2px solid $color-background-100;
+  left: $dial-arc-width * 2 * -1;
+  outline: 2px solid $color-background;
   position: absolute;
   transform-origin: right;
-  width: $dial-width / 2 + 10px;
+  width: $dial-width / 2 + $dial-arc-width;
+}
+
+.min,
+.max,
+.value {
+  position: absolute;
+}
+
+.min,
+.max {
+  bottom: -40px;
+}
+
+.min {
+  left: $dial-arc-width * 2 * -1;
+}
+
+.max {
+  right: $dial-arc-width * 3 * -1;
+}
+
+.value {
+  top: -50px;
+  transform: translateX(-50%);
+  left: 50%;
 }

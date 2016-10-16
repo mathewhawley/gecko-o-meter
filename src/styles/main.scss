@@ -12,5 +12,7 @@ html {
 
 body {
   margin: 0;
-  background-color: $color-background-100;
+  background-color: $color-background;
+  font-family: $font-stack;
+  color: $color-white;
 }
