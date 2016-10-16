@@ -15,7 +15,7 @@ class GeckoOMeter extends Component {
   }
 
   calculatePercentage(min, max, value) {
-    return ((value - min) * 100) / (max - min);
+    return ((value - min) * 180) / (max - min);
   }
 
   formatCurrency(num, ISO) {
