@@ -22,7 +22,7 @@ class GeckoOMeter extends Component {
     return num.toLocaleString('en', {
       style: 'currency',
       currency: ISO,
-      maximumFractionDigits: 0,
+      minimumFractionDigits: 0,
     });
   }
 
