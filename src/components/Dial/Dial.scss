@@ -1,4 +1,4 @@
-@import '../styles/variables';
+@import '../../styles/variables';
 
 .base {
   align-items: center;
@@ -10,6 +10,7 @@
   height: $base-height;
   justify-content: center;
   left: 50%;
+  position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
   width: $base-width;
@@ -36,7 +37,6 @@
   width: $dial-width / 2 + $dial-arc-width;
 }
 
-.base,
 .min,
 .max,
 .value {
