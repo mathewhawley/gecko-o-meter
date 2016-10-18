@@ -13,17 +13,14 @@ const GeckoOMeter = (WrappedComponent) => class extends Component {
       loading: true,
       error: false,
     };
+    this.handleStateUpdate = this.handleStateUpdate.bind(this);
     this.handleError = this.handleError.bind(this);
   }
 
   componentDidMount() {
     this.props.promise
       .then(this.handleResponse)
-      .then((data) => this.setState({
-        ...this.state,
-        data,
-        loading: false,
-      }))
+      .then(this.handleStateUpdate)
       .catch(this.handleError);
   }
 
@@ -32,6 +29,14 @@ const GeckoOMeter = (WrappedComponent) => class extends Component {
       throw Error(response.statusText);
     }
     return response.json();
+  }
+
+  handleStateUpdate(data) {
+    this.setState({
+      ...this.state,
+      data,
+      loading: false,
+    });
   }
 
   handleError(err) {
