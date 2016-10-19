@@ -2,7 +2,10 @@ import React, { Component, PropTypes } from 'react';
 
 const GeckoOMeter = (WrappedComponent) => class GeckoOMeter extends Component {
   static propTypes = {
-    promise: PropTypes.object.isRequired,
+    promise: PropTypes.shape({
+      then: PropTypes.func.isRequired,
+      catch: PropTypes.func.isRequired,
+    }),
   };
 
   constructor() {
