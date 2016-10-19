@@ -7,7 +7,7 @@ import Currency from './components/Currency';
 import Dial from './components/Dial';
 
 import './styles/main';
-import styles from './components/Dial/Dial.scss';
+import styles from './components/GeckoOMeter/GeckoOMeter.scss';
 
 const CurrencyDial = Currency(Dial);
 const CurrencyMeter = GeckoOMeter(CurrencyDial);

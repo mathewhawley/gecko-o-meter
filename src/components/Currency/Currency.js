@@ -13,7 +13,6 @@ const Currency = (WrappedComponent) => {
     return <WrappedComponent {...updatedProps} />;
   };
 
-  Currency.displayName = 'Currency';
   Currency.propTypes = {
     min: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired,

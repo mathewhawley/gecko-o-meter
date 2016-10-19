@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import styles from './Dial.scss';
 
 const Dial = ({ min, max, value, angle }) => (
-  <div className={styles.dial}>
+  <div className={styles.base}>
     <div className={styles.needle} style={{ transform: `rotate(${angle}deg)` }}></div>
     <div className={styles.value}>{value}</div>
     <div className={styles.min}>{min}</div>
@@ -10,7 +10,6 @@ const Dial = ({ min, max, value, angle }) => (
   </div>
 );
 
-Dial.displayName = 'Dial';
 Dial.propTypes = {
   min: PropTypes.string.isRequired,
   max: PropTypes.string.isRequired,

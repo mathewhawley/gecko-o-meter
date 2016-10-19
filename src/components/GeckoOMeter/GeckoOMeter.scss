@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.base {
+  align-items: center;
+  background-color: $color-background;
+  border-radius: 5px;
+  border: 1px solid $color-border;
+  display: flex;
+  font-size: 1.5em;
+  height: $base-height;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: $base-width;
+}
