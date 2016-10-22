@@ -1,43 +1,17 @@
 @import '../../styles/variables';
 
+@keyframes draw {
+  to { stroke-dashoffset: 0 }
+}
+
+@keyframes draw-reverse {
+  from { stroke-dashoffset: -120 }
+  to { stroke-dashoffset: 0 }
+}
+
 $dial-width: 225px;
 $dial-arc-width: 15px;
 $needle-overhang: 5px;
-
-.base {
-  border-color: $color-background-light;
-  border-radius: $dial-width $dial-width 0 0;
-  border-style: solid;
-  border-width: $dial-arc-width $dial-arc-width 0;
-  font-weight: $font-regular;
-  height: $dial-width / 2;
-  margin-top: 50px;
-  position: relative;
-  width: $dial-width;
-}
-
-.needle {
-  background-color: $color-white;
-  bottom: 0;
-  box-shadow: 0 0 0 2px $color-background-light;
-  height: 4px;
-  left: ($dial-arc-width + $needle-overhang) * -1;
-  position: absolute;
-  transform-origin: right;
-  width: ($dial-width / 2) + $needle-overhang;
-
-  &::after {
-    content: '';
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: $color-background-light;
-    border: 4px solid $color-white;
-    position: absolute;
-    bottom: -5px;
-    right: -5px;
-  }
-}
 
 .min,
 .max,
@@ -67,17 +41,55 @@ $needle-overhang: 5px;
   transform: translateX(-50%);
 }
 
+.base {
+  width: 80%;
+  max-width: 280px;
+
+  svg {
+    display: block;
+  }
+}
+
+.arc {
+  animation: draw 1s cubic-bezier(0.2, 1, 0.2, 1) forwards;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  fill: transparent;
+}
+
 .bad {
-  composes: base;
-  border-color: $color-status-bad;
+  composes: arc;
+  stroke: $color-status-bad;
 }
 
 .meh {
-  composes: base;
-  border-color: $color-status-meh;
+  composes: arc;
+  stroke: $color-status-meh;
 }
 
 .good {
-  composes: base;
-  border-color: $color-status-good;
+  composes: arc;
+  stroke: $color-status-good;
+}
+
+.indicator {
+  stroke: $color-white;
+}
+
+.needle {
+  animation: draw 1s cubic-bezier(0.2, 1, 0.2, 1) .5s forwards;
+  stroke: $color-white;
+  transform-origin: 50% 83.5% 0;
+}
+
+.outline {
+  composes: needle;
+  stroke: $color-background-light;
+}
+
+.circle {
+  animation: draw 1s cubic-bezier(0.2, 1, 0.2, 1) .3s forwards;
+  stroke-dasharray: 35;
+  stroke-dashoffset: 35;
+  fill: $color-background-light;
 }

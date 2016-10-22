@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 
 $widget-max-height: 400px;
-$widget-min-width: 325px;
+$widget-min-width: 300px;
 $widget-min-height: 290px;
 
 .base {
@@ -17,10 +17,5 @@ $widget-min-height: 290px;
   flex-shrink: 0;
   flex-basis: calc(25% - #{$grid-padding * 2});
   margin: ($grid-padding * 2) $grid-padding 0;
-}
-
-@media #{$bp-xsmall-up} {
-  .base {
-    min-width: $widget-min-width;
-  }
+  min-width: $widget-min-width;
 }
