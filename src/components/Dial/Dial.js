@@ -15,29 +15,53 @@ const Dial = ({ min, max, value, unit, format }) => {
 
   return (
     <div className={styles.base}>
-      <svg viewBox='0 0 200 150' version='1.1'>
-        <path className={arcClass} d='M15 125 A1 1 0 0 1 185 125' strokeWidth={16} />
+      <svg viewBox='0 0 200 185' version='1.1'>
+
+        <text className={styles.value} x={100} y={40} textAnchor='middle'>{formattedValue}</text>
+
+        <path
+          className={arcClass}
+          strokeWidth={16}
+          strokeDashoffset={300}
+          strokeDasharray={300}
+          d='M15 155 A1 1 0 0 1 185 155'
+        />
+
         <g className={styles.indicator}>
-          <path
-            className={styles.outline}
-            strokeWidth='7px'
-            strokeDashoffset='100px'
-            strokeDasharray='100px'
-            strokeLinecap='round'
-            d='M 0 125 H 100'
-            transform={`rotate(${angle} 100 125)`}
+          <g transform={`rotate(${angle} 100 155)`}>
+            <path
+              className={styles.outline}
+              strokeWidth={7}
+              strokeDashoffset={100}
+              strokeDasharray={100}
+              strokeLinecap='round'
+              d='M 3 155 H 100'
+            />
+            <path
+              className={styles.needle}
+              strokeWidth={3}
+              strokeDashoffset={100}
+              strokeDasharray={100}
+              strokeLinecap='round'
+              d='M 3 155 H 100'
+            />
+          </g>
+          <circle
+            className={styles.circle}
+            cx={100}
+            cy={155}
+            r={4}
+            strokeWidth={3}
+            strokeDashoffset={35}
+            strokeDasharray={35}
           />
-          <path
-            className={styles.needle}
-            strokeWidth='3px'
-            strokeDashoffset='100px'
-            strokeDasharray='100px'
-            strokeLinecap='round'
-            d='M 0 125 H 100'
-            transform={`rotate(${angle} 100 125)`}
-          />
-          <circle className={styles.circle} cx={100} cy={125} r={5} strokeWidth={2.5} />
         </g>
+
+        <g className={styles.range}>
+          <text x={5} y={180} textAnchor='start'>{min}</text>
+          <text x={195} y={180} textAnchor='end'>{max}</text>
+        </g>
+
       </svg>
     </div>
   );
