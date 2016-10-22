@@ -3,9 +3,14 @@ import styles from './Loader.scss';
 
 const Loader = () => (
   <div className={styles.base}>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div className={styles.dot}></div>
+    <div className={styles.dot}></div>
+    <div className={styles.dot}></div>
+    <div className={styles.dot}></div>
+    <div className={styles.dot}></div>
+    <div className={styles.dot}></div>
+    <div className={styles.dot}></div>
+    <div className={styles.dot}></div>
   </div>
 );
 
