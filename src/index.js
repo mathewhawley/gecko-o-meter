@@ -1,20 +1,17 @@
+if (module.hot) {
+  module.hot.accept();
+}
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import fetch from 'isomorphic-fetch';
-
-import GeckoOMeter from './components/GeckoOMeter';
-import Currency from './components/Currency';
-import Dial from './components/Dial';
-
+import _ from 'lodash';
+import GeckoOMeter from 'components/GeckoOMeter';
 import './styles/main';
-import styles from './components/GeckoOMeter/GeckoOMeter.scss';
-
-const CurrencyDial = Currency(Dial);
-const CurrencyMeter = GeckoOMeter(CurrencyDial);
 
 ReactDOM.render(
-  <div className={styles.base}>
-    <CurrencyMeter promise={fetch('https://widgister.herokuapp.com/challenge/frontend')} />
+  <div className='container'>
+    {_.times(12, (index) => (<GeckoOMeter key={index} promise={fetch('https://widgister.herokuapp.com/challenge/frontend')} />))}
   </div>,
   document.getElementById('root')
 );

@@ -11,7 +11,7 @@
     "test:watch": "npm test -- --watch --reporter min",
     "start": "npm run clean && npm run copy && babel-node tools/devServer",
     "clean": "rm -rf build",
-    "copy": "cp -r src/html build"
+    "copy": "cp -r src/html build && cp -r src/assets build/static"
   },
   "author": "Mathew Hawley",
   "license": "ISC",
@@ -28,6 +28,7 @@
     "chai": "^3.5.0",
     "css-loader": "^0.25.0",
     "enzyme": "^2.4.1",
+    "file-loader": "^0.9.0",
     "isomorphic-fetch": "^2.2.1",
     "jsdom": "^9.7.1",
     "mocha": "^3.1.2",
@@ -40,6 +41,8 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
+    "lodash": "^4.16.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   }

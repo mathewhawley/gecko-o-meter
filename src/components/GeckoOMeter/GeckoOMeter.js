@@ -1,64 +1,19 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
+import Dial from 'components/Dial';
+import Store from 'components/Store';
+import ViewHandler from 'components/ViewHandler';
+import styles from './GeckoOMeter.scss';
 
-const GeckoOMeter = (WrappedComponent) => class GeckoOMeter extends Component {
-  static propTypes = {
-    promise: PropTypes.shape({
-      then: PropTypes.func.isRequired,
-      catch: PropTypes.func.isRequired,
-    }),
-  };
+const Widget = Store(ViewHandler(Dial));
 
-  constructor() {
-    super();
-    this.state = {
-      data: {},
-      loading: true,
-      error: false,
-    };
-    this.handleStateUpdate = this.handleStateUpdate.bind(this);
-    this.handleError = this.handleError.bind(this);
-  }
+const GeckoOMeter = ({ promise }) => (
+  <div className={styles.base}>
+    <Widget promise={promise} />
+  </div>
+);
 
-  componentDidMount() {
-    this.props.promise
-      .then(this.handleResponse)
-      .then(this.handleStateUpdate)
-      .catch(this.handleError);
-  }
-
-  handleResponse(response) {
-    if (!response.ok) {
-      throw Error(response.statusText);
-    }
-    return response.json();
-  }
-
-  handleStateUpdate(data) {
-    this.setState({
-      ...this.state,
-      data,
-      loading: false,
-    });
-  }
-
-  handleError(err) {
-    this.setState({
-      ...this.state,
-      error: true,
-      loading: false
-    });
-    console.error(err);
-  }
-
-  render() {
-    if (this.state.loading) {
-      return <div>Loading...</div>;
-    } else if (this.state.error) {
-      return <div>Something went wrong!</div>;
-    } else {
-      return <WrappedComponent {...this.state.data} />;
-    }
-  }
+GeckoOMeter.propTypes = {
+  promise: PropTypes.object.isRequired,
 };
 
 export default GeckoOMeter;

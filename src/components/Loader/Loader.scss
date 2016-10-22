@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+
+$loader-width: 50px;
+$loader-dot-width: 10px;
+
+@keyframes loader-scale {
+  0%, 80%, 100% {
+    transform: scale(0);
+  } 40% {
+    transform: scale(1.0);
+  }
+}
+
+.base {
+  display: flex;
+  justify-content: space-between;
+  width: $loader-width;
+
+  > div {
+    width: $loader-dot-width;
+    height: $loader-dot-width;
+    background-color: $color-white;
+    border-radius: 100%;
+    display: inline-block;
+    animation: loader-scale 1.25s infinite ease-in-out both;
+  }
+
+  > div:first-child {
+    animation-delay: -0.32s;
+  }
+
+  > div:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+}

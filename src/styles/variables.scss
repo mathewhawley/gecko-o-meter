@@ -2,23 +2,41 @@
  * Typography
  * ================================================= */
 
-$font-stack: 'Helvetica Neue', helvetica, arial, sans-serif;
+$font-stack: 'Roboto', 'Helvetica Neue', helvetica, arial, sans-serif;
+
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-bold: 700;
+$font-black: 900;
 
 /*
  * Colors
  * ================================================= */
 
 $color-background: #263238;
-$color-border: #455a64;
-$color-highlight: #03a9f4;
+$color-background-light: #37474f;
+$color-border: #607d8b;
 $color-white: #fff;
 $color-black: #000;
+
+$color-status-bad: #d81b60;
+$color-status-meh: #ffa726;
+$color-status-good: #7cb342;
 
 /*
  * Layout
  * ================================================= */
 
-$base-width: 400px;
-$base-height: 320px;
-$dial-width: 300px;
-$dial-arc-width: 10px;
+$screen-xs-min: 480px;  // Extra small screen / phone
+$screen-sm-min: 768px;  // Small screen / tablet
+$screen-md-min: 992px;  // Medium screen / desktop
+$screen-lg-min: 1200px; // Large screen / wide desktop
+
+$bp-xsmall-up: 'only screen and (min-width: #{$screen-xs-min})';
+$bp-small-up: 'only screen and (min-width: #{$screen-sm-min})';
+$bp-medium-up: 'only screen and (min-width: #{$screen-md-min})';
+$bp-large-up: 'only screen and (min-width: #{$screen-lg-min})';
+
+$trunk-max-width: 1400px;
+$grid-padding: 10px;

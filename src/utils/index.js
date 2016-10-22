@@ -12,7 +12,7 @@ export const calculateAngle = (min, max, value) => {
 
 export const formatAsCurrency = (num, iso, format) => {
   if (typeof format === 'undefined') {
-    return String(num);
+    return num;
   }
 
   return num.toLocaleString('en', {

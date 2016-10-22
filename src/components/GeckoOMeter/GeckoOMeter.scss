@@ -1,17 +1,26 @@
 @import '../../styles/variables';
 
+$widget-max-height: 400px;
+$widget-min-width: 325px;
+$widget-min-height: 290px;
+
 .base {
   align-items: center;
-  background-color: $color-background;
-  border-radius: 5px;
-  border: 1px solid $color-border;
+  background-color: $color-background-light;
+  border-radius: 3px;
   display: flex;
-  font-size: 1.5em;
-  height: $base-height;
+  height: calc(50vh - #{$grid-padding * 3});
+  min-height: $widget-min-height;
+  max-height: $widget-max-height;
   justify-content: center;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: $base-width;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: calc(25% - #{$grid-padding * 2});
+  margin: ($grid-padding * 2) $grid-padding 0;
+}
+
+@media #{$bp-xsmall-up} {
+  .base {
+    min-width: $widget-min-width;
+  }
 }

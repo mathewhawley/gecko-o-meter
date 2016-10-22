@@ -1,3 +1,4 @@
+@import './fonts';
 @import './variables';
 
 html {
@@ -11,8 +12,18 @@ html {
 }
 
 body {
-  margin: 0;
   background-color: $color-background;
-  font-family: $font-stack;
   color: $color-white;
+  font-family: $font-stack;
+  margin: 0;
+}
+
+:global .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  padding: $grid-padding $grid-padding ($grid-padding * 2);
+  margin: ($grid-padding * -1) auto 0;
+  max-width: $trunk-max-width;
 }
