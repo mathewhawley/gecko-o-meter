@@ -50,16 +50,16 @@ const Dial = ({ min, max, value, unit, format }) => {
             <path
               className={styles.outline}
               strokeWidth={7}
-              strokeDashoffset={100}
-              strokeDasharray={100}
+              strokeDashoffset={110}
+              strokeDasharray={110}
               strokeLinecap='round'
               d='M 3 155 H 100'
             />
             <path
               className={styles.fill}
               strokeWidth={3}
-              strokeDashoffset={100}
-              strokeDasharray={100}
+              strokeDashoffset={110}
+              strokeDasharray={110}
               strokeLinecap='round'
               d='M 3 155 H 100'
             />
