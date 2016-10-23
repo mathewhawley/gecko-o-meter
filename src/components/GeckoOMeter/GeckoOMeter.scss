@@ -1,8 +1,16 @@
 @import '../../styles/variables';
 
+/*
+ * Variables
+ * ================================================= */
+
 $widget-max-height: 350px;
 $widget-min-width: 280px;
 $widget-min-height: 300px;
+
+/*
+ * Elements
+ * ================================================= */
 
 .base {
   align-items: center;

@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import autoprefixer from 'autoprefixer';
 
 const PATHS = {
   src: path.resolve(__dirname, '../src'),
@@ -35,6 +36,7 @@ const config = {
             sourceMap: true,
             localIdentName: '[name]__[local]__[hash:base64:5]',
           })}`,
+          'postcss',
           'sass?sourceMap',
         ],
         include: PATHS.src,
@@ -55,6 +57,7 @@ const config = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
+  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
 };
 
 export default config;

@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classnames from 'classnames';
 import { calculateAngle, formatAsCurrency } from '../../utils';
 import styles from './Dial.scss';
+import transitionStyles from '../../styles/transitions.scss';
 
 const Dial = ({ min, max, value, unit, format }) => {
   const angle = calculateAngle(min, max, value);
@@ -17,7 +19,16 @@ const Dial = ({ min, max, value, unit, format }) => {
     <div className={styles.base}>
       <svg viewBox='0 0 200 185' version='1.1'>
 
-        <text className={styles.value} x={100} y={40} textAnchor='middle'>{formattedValue}</text>
+        <ReactCSSTransitionGroup
+          component='g'
+          transitionName={transitionStyles}
+          transitionAppear={true}
+          transitionAppearTimout={250}
+          transitionEnterTimeout={250}
+          transitionLeaveTimeout={250}
+        >
+          <text className={styles.value} x={100} y={40} textAnchor='middle'>{formattedValue}</text>
+        </ReactCSSTransitionGroup>
 
         <g>
           <path
@@ -45,7 +56,7 @@ const Dial = ({ min, max, value, unit, format }) => {
               d='M 3 155 H 100'
             />
             <path
-              className={styles.needle}
+              className={styles.fill}
               strokeWidth={3}
               strokeDashoffset={100}
               strokeDasharray={100}
@@ -64,10 +75,19 @@ const Dial = ({ min, max, value, unit, format }) => {
           />
         </g>
 
-        <g className={styles.range}>
-          <text x={5} y={180} textAnchor='start'>{min}</text>
-          <text x={195} y={180} textAnchor='end'>{max}</text>
-        </g>
+        <ReactCSSTransitionGroup
+          component='g'
+          transitionName={transitionStyles}
+          transitionAppear={true}
+          transitionAppearTimout={250}
+          transitionEnterTimeout={250}
+          transitionLeaveTimeout={250}
+        >
+          <g className={styles.range}>
+            <text x={5} y={180} textAnchor='start'>{min}</text>
+            <text x={195} y={180} textAnchor='end'>{max}</text>
+          </g>
+        </ReactCSSTransitionGroup>
 
       </svg>
     </div>

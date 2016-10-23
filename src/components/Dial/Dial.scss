@@ -1,5 +1,17 @@
 @import '../../styles/variables';
 
+/*
+ * Variables
+ * ================================================= */
+
+$dial-width: 225px;
+$dial-arc-width: 15px;
+$needle-overhang: 5px;
+
+/*
+ * Animations
+ * ================================================= */
+
 @keyframes draw {
   to { stroke-dashoffset: 0 }
 }
@@ -9,14 +21,14 @@
   to { stroke-dashoffset: 200 }
 }
 
-$dial-width: 225px;
-$dial-arc-width: 15px;
-$needle-overhang: 5px;
+/*
+ * Elements
+ * ================================================= */
 
 .base {
-  width: 75%;
-  max-width: 280px;
   fill: $color-white;
+  max-width: 280px;
+  width: 75%;
 
   svg {
     display: block;
@@ -29,8 +41,8 @@ $needle-overhang: 5px;
 }
 
 .arcProgress {
-  fill: transparent;
   animation: draw 1.5s cubic-bezier(0.2, 1, 0.2, 1) forwards;
+  fill: transparent;
 }
 
 .bad {
@@ -52,7 +64,7 @@ $needle-overhang: 5px;
   stroke: $color-white;
 }
 
-.needle,
+.fill,
 .outline {
   animation: draw-reverse 1s cubic-bezier(0.2, 1, 0.2, 1) .3s forwards;
 }

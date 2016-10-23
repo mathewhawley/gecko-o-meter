@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
-import Dial from 'components/Dial';
-import Store from 'components/Store';
-import ViewHandler from 'components/ViewHandler';
+import Dial from '../Dial';
+import Store from '../Store';
+import ViewHandler from '../ViewHandler';
 import styles from './GeckoOMeter.scss';
 
 const Widget = Store(ViewHandler(Dial));

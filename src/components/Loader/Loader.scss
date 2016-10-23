@@ -1,15 +1,27 @@
 @import '../../styles/variables';
 
-@keyframes spinner {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+/*
+ * Variables
+ * ================================================= */
 
 $loader-size: 40px;
 $loader-rotation-speed: 2s;
 $loader-dot-size: 0.1; // as a percentage of '$loader-size'
 $loader-dot-count: 8;
 $loader-dot-offset-angle: 360 / $loader-dot-count;
+
+/*
+ * Animations
+ * ================================================= */
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*
+ * Elements
+ * ================================================= */
 
 .base {
   animation: spinner $loader-rotation-speed infinite linear;
@@ -32,10 +44,11 @@ $loader-dot-offset-angle: 360 / $loader-dot-count;
     margin: 0 auto;
     width: $loader-size * $loader-dot-size;
   }
-}
 
-@for $i from 1 to $loader-dot-count {
-  .base .dot:nth-child(#{$i + 1}) {
-    transform: rotate(#{$loader-dot-offset-angle * $i}deg);
+  @for $i from 1 to $loader-dot-count {
+    &:nth-child(#{$i + 1}) {
+      transform: rotate(#{$loader-dot-offset-angle * $i}deg);
+    }
   }
 }
+
