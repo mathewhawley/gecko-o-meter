@@ -16,7 +16,7 @@ export const formatAsCurrency = (num, iso, format) => {
   }
 
   return num.toLocaleString('en', {
-    style: format,
+    style: 'currency',
     currency: iso,
     minimumFractionDigits: 0,
   });

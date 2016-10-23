@@ -33,10 +33,10 @@ $screen-sm-min: 768px;  // Small screen / tablet
 $screen-md-min: 992px;  // Medium screen / desktop
 $screen-lg-min: 1200px; // Large screen / wide desktop
 
-$bp-xsmall-up: 'only screen and (min-width: #{$screen-xs-min})';
-$bp-small-up: 'only screen and (min-width: #{$screen-sm-min})';
-$bp-medium-up: 'only screen and (min-width: #{$screen-md-min})';
-$bp-large-up: 'only screen and (min-width: #{$screen-lg-min})';
+$xsmall-up: 'only screen and (min-width: #{$screen-xs-min})';
+$small-up: 'only screen and (min-width: #{$screen-sm-min})';
+$medium-up: 'only screen and (min-width: #{$screen-md-min})';
+$large-up: 'only screen and (min-width: #{$screen-lg-min})';
 
 $trunk-max-width: 1400px;
 $grid-padding: 10px;

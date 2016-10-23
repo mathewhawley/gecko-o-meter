@@ -7,7 +7,7 @@ const Dial = ({ min, max, value, unit, format }) => {
   const angle = calculateAngle(min, max, value);
   const formattedValue = formatAsCurrency(value, unit, format);
 
-  const arcClass = classnames({
+  const arcProgress = classnames({
     [styles.bad]: angle < 60,
     [styles.meh]: angle >= 60 && angle < 120,
     [styles.good]: angle >= 120,
@@ -19,13 +19,20 @@ const Dial = ({ min, max, value, unit, format }) => {
 
         <text className={styles.value} x={100} y={40} textAnchor='middle'>{formattedValue}</text>
 
-        <path
-          className={arcClass}
-          strokeWidth={16}
-          strokeDashoffset={300}
-          strokeDasharray={300}
-          d='M15 155 A1 1 0 0 1 185 155'
-        />
+        <g>
+          <path
+            className={styles.arc}
+            strokeWidth={16}
+            d='M15 155 A85 85 0 0 1 185 155'
+          />
+          <path
+            className={arcProgress}
+            strokeWidth={16}
+            strokeDashoffset={300}
+            strokeDasharray={300}
+            d='M15 155 A85 85 0 0 1 185 155'
+          />
+        </g>
 
         <g className={styles.indicator}>
           <g transform={`rotate(${angle} 100 155)`}>
@@ -76,10 +83,3 @@ Dial.propTypes = {
 };
 
 export default Dial;
-
-// <div className={classes}>
-//  <div className={styles.needle} style={{ transform: `rotate(${angle}deg)` }}></div>
-//  <div className={styles.value}>{formattedValue}</div>
-//  <div className={styles.min}>{min}</div>
-//  <div className={styles.max}>{max}</div>
-// </div>

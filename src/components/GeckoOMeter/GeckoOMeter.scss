@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 
-$widget-max-height: 400px;
-$widget-min-width: 300px;
+$widget-max-height: 350px;
+$widget-min-width: 280px;
 $widget-min-height: 300px;
 
 .base {
@@ -9,13 +9,13 @@ $widget-min-height: 300px;
   background-color: $color-background-light;
   border-radius: 3px;
   display: flex;
-  height: calc(50vh - #{$grid-padding * 3});
-  min-height: $widget-min-height;
-  max-height: $widget-max-height;
-  justify-content: center;
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: calc(25% - #{$grid-padding * 2});
+  height: calc(50vh - #{$grid-padding * 3});
+  justify-content: center;
   margin: ($grid-padding * 2) $grid-padding 0;
+  max-height: $widget-max-height;
+  min-height: $widget-min-height;
   min-width: $widget-min-width;
 }

@@ -5,8 +5,8 @@
 }
 
 @keyframes draw-reverse {
-  from { stroke-dashoffset: -100 }
-  to { stroke-dashoffset: 0 }
+  from { stroke-dashoffset: 100 }
+  to { stroke-dashoffset: 200 }
 }
 
 $dial-width: 225px;
@@ -24,22 +24,27 @@ $needle-overhang: 5px;
 }
 
 .arc {
-  animation: draw 1s cubic-bezier(0.2, 1, 0.2, 1) forwards;
   fill: transparent;
+  stroke: $color-background;
+}
+
+.arcProgress {
+  fill: transparent;
+  animation: draw 1.5s cubic-bezier(0.2, 1, 0.2, 1) forwards;
 }
 
 .bad {
-  composes: arc;
+  composes: arcProgress;
   stroke: $color-status-bad;
 }
 
 .meh {
-  composes: arc;
+  composes: arcProgress;
   stroke: $color-status-meh;
 }
 
 .good {
-  composes: arc;
+  composes: arcProgress;
   stroke: $color-status-good;
 }
 
@@ -49,7 +54,7 @@ $needle-overhang: 5px;
 
 .needle,
 .outline {
-  animation: draw-reverse 1s cubic-bezier(0.2, 1, 0.2, 1) .5s forwards;
+  animation: draw-reverse 1s cubic-bezier(0.2, 1, 0.2, 1) .3s forwards;
 }
 
 .outline {
@@ -57,12 +62,12 @@ $needle-overhang: 5px;
 }
 
 .circle {
-  animation: draw 1s cubic-bezier(0.2, 1, 0.2, 1) .3s forwards;
+  animation: draw 1s cubic-bezier(0.2, 1, 0.2, 1) .2s forwards;
   fill: $color-background-light;
 }
 
 .value {
-  font-size: 50px;
+  font-size: 45px;
   font-weight: $font-light;
 }
 
