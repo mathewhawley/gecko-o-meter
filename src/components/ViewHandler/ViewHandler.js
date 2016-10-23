@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import Loader from 'components/Loader';
-import ErrorMessage from 'components/Error';
+import Loader from '../Loader';
+import ErrorMessage from '../Error';
 
 const ViewHandler = (WrappedComponent) => {
   function ViewHandler({ loading, error, data }) {

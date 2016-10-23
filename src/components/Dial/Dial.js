@@ -23,11 +23,19 @@ const Dial = ({ min, max, value, unit, format }) => {
           component='g'
           transitionName={transitionStyles}
           transitionAppear={true}
-          transitionAppearTimout={250}
+          transitionAppearTimeout={0}
           transitionEnterTimeout={250}
           transitionLeaveTimeout={250}
         >
-          <text className={styles.value} x={100} y={40} textAnchor='middle'>{formattedValue}</text>
+          <text
+            className={styles.value}
+            x={100}
+            y={40}
+            textAnchor='middle'
+            key='value'
+          >
+            {formattedValue}
+          </text>
         </ReactCSSTransitionGroup>
 
         <g>
@@ -79,11 +87,11 @@ const Dial = ({ min, max, value, unit, format }) => {
           component='g'
           transitionName={transitionStyles}
           transitionAppear={true}
-          transitionAppearTimout={250}
+          transitionAppearTimeout={0}
           transitionEnterTimeout={250}
           transitionLeaveTimeout={250}
         >
-          <g className={styles.range}>
+          <g className={styles.range} key='range'>
             <text x={5} y={180} textAnchor='start'>{min}</text>
             <text x={195} y={180} textAnchor='end'>{max}</text>
           </g>
