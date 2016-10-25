@@ -7,7 +7,7 @@ const Store = (WrappedComponent) => class Store extends Component {
     promise: PropTypes.shape({
       then: PropTypes.func.isRequired,
       catch: PropTypes.func.isRequired,
-    }),
+    }).isRequired,
   };
 
   constructor() {
