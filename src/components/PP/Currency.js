@@ -4,10 +4,10 @@ import { formatAsCurrency } from '../../utils';
 
 const PPCurrency = (WrappedComponent) => {
   function PPCurrency(props) {
-    const { unit, format } = props;
+    const { unit = 'USD' } = props;
     const formattedProps = Object.keys(props).reduce((obj, key) => {
       if (_.isNumber(props[key])) {
-        obj[key] = formatAsCurrency(props[key], unit, format);
+        obj[key] = formatAsCurrency(props[key], unit);
         return obj;
       }
       return obj;

@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { calculateAngle } from '../../utils';
 import styles from './Dial.scss';
 
-const Dial = ({ min, max, value, formattedProps }) => {
+const Dial = ({ min, max, value, formattedProps = {} }) => {
   const angle = calculateAngle(min, max, value);
 
   const arcProgress = classnames({
@@ -25,7 +25,7 @@ const Dial = ({ min, max, value, formattedProps }) => {
             textAnchor='middle'
             key='value'
           >
-            {formattedProps.value}
+            {formattedProps.value ? formattedProps.value : value}
           </text>
         </Transition>
 
