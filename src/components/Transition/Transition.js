@@ -22,4 +22,13 @@ const Transition = ({
   </ReactCSSTransitionGroup>
 );
 
+Transition.propTypes = {
+  children: PropTypes.element.isRequired,
+  component: PropTypes.string,
+  appear: PropTypes.bool,
+  appearTimeout: PropTypes.number,
+  enterTimeout: PropTypes.number,
+  leaveTimeout: PropTypes.number,
+};
+
 export default Transition;
