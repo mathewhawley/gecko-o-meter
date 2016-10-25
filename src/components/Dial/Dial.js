@@ -1,13 +1,11 @@
 import React, { PropTypes } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Transition from '../Transition';
 import classnames from 'classnames';
-import { calculateAngle, formatAsCurrency } from '../../utils';
+import { calculateAngle } from '../../utils';
 import styles from './Dial.scss';
-import transitionStyles from '../../styles/transitions.scss';
 
-const Dial = ({ min, max, value, unit, format }) => {
+const Dial = ({ min, max, value, formattedProps }) => {
   const angle = calculateAngle(min, max, value);
-  const formattedValue = formatAsCurrency(value, unit, format);
 
   const arcProgress = classnames({
     [styles.bad]: angle < 60,
@@ -19,14 +17,7 @@ const Dial = ({ min, max, value, unit, format }) => {
     <div className={styles.base}>
       <svg viewBox='0 0 200 185' version='1.1'>
 
-        <ReactCSSTransitionGroup
-          component='g'
-          transitionName={transitionStyles}
-          transitionAppear={true}
-          transitionAppearTimeout={0}
-          transitionEnterTimeout={250}
-          transitionLeaveTimeout={250}
-        >
+        <Transition component='g'>
           <text
             className={styles.value}
             x={100}
@@ -34,9 +25,9 @@ const Dial = ({ min, max, value, unit, format }) => {
             textAnchor='middle'
             key='value'
           >
-            {formattedValue}
+            {formattedProps.value}
           </text>
-        </ReactCSSTransitionGroup>
+        </Transition>
 
         <g>
           <path
@@ -83,19 +74,12 @@ const Dial = ({ min, max, value, unit, format }) => {
           />
         </g>
 
-        <ReactCSSTransitionGroup
-          component='g'
-          transitionName={transitionStyles}
-          transitionAppear={true}
-          transitionAppearTimeout={0}
-          transitionEnterTimeout={250}
-          transitionLeaveTimeout={250}
-        >
+        <Transition component='g'>
           <g className={styles.range} key='range'>
             <text x={5} y={180} textAnchor='start'>{min}</text>
             <text x={195} y={180} textAnchor='end'>{max}</text>
           </g>
-        </ReactCSSTransitionGroup>
+        </Transition>
 
       </svg>
     </div>
@@ -106,8 +90,7 @@ Dial.propTypes = {
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
-  unit: PropTypes.string,
-  format: PropTypes.string,
+  formattedProps: PropTypes.object,
 };
 
 export default Dial;

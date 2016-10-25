@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import Loader from '../Loader';
+import ErrorMessage from '../Error';
 
 const Store = (WrappedComponent) => class Store extends Component {
   static propTypes = {
@@ -49,7 +51,13 @@ const Store = (WrappedComponent) => class Store extends Component {
   }
 
   render() {
-    return <WrappedComponent {...this.state} />;
+    if (this.state.loading) {
+      return <Loader />;
+    } else if (this.state.error) {
+      return <ErrorMessage />;
+    } else {
+      return <WrappedComponent {...this.state.data} />;
+    }
   }
 };
 

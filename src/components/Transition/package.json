@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "name": "Transition",
+  "main": "./Transition.js"
+}

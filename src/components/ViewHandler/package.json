@@ -1,5 +1,0 @@
-{
-  "private": true,
-  "name": "ViewHandler",
-  "main": "./ViewHandler.js"
-}

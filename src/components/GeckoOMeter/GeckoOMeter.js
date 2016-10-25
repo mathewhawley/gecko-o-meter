@@ -1,19 +1,15 @@
 import React, { PropTypes } from 'react';
 import Dial from '../Dial';
 import Store from '../Store';
-import ViewHandler from '../ViewHandler';
+import PPCurrency from '../PP/Currency';
 import styles from './GeckoOMeter.scss';
 
-const Widget = Store(ViewHandler(Dial));
+const Widget = Store(PPCurrency(Dial));
 
-const GeckoOMeter = ({ promise }) => (
+const GeckoOMeter = ({ fetchData }) => (
   <div className={styles.base}>
-    <Widget promise={promise} />
+    <Widget promise={fetchData()} />
   </div>
 );
-
-GeckoOMeter.propTypes = {
-  promise: PropTypes.object.isRequired,
-};
 
 export default GeckoOMeter;
