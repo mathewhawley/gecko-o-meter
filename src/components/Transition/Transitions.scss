@@ -1,0 +1,30 @@
+@import '../../styles/variables';
+
+$transition-time: 250ms;
+
+.enter {
+  opacity: 0;
+  transition: opacity $transition-time ease-in;
+}
+
+.enter.enterActive {
+  opacity: 1;
+}
+
+.leave {
+  opacity: 1;
+  transition: opacity $transition-time ease-in;
+}
+
+.leave.leaveActive {
+  opacity: 0;
+}
+
+.appear {
+  opacity: 0;
+}
+
+.appear.appearActive {
+  opacity: 1;
+  transition: opacity $transition-time ease-in ($transition-time * 2);
+}

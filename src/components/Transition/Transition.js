@@ -1,18 +1,18 @@
 import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import transitionStyles from '../../styles/transitions.scss';
+import styles from './Transitions.scss';
 
 const Transition = ({
   children,
   component = 'span',
   appear = true,
-  appearTimeout = 0,
+  appearTimeout = 750,
   enterTimeout = 250,
   leaveTimeout = 250,
 }) => (
   <ReactCSSTransitionGroup
     component={component}
-    transitionName={transitionStyles}
+    transitionName={styles}
     transitionAppear={appear}
     transitionAppearTimeout={appearTimeout}
     transitionEnterTimeout={enterTimeout}
