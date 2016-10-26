@@ -9,7 +9,7 @@ const PPCurrency = (WrappedComponent) => {
 
     for (const [key, value] of entries(props)) {
       if (_.isNumber(value)) {
-        formattedProps[key] = formatAsCurrency(props[key], unit);
+        formattedProps[key] = formatAsCurrency(value, unit);
       }
     }
 
