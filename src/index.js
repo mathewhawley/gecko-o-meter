@@ -2,6 +2,7 @@ if (module.hot) {
   module.hot.accept();
 }
 
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'lodash';

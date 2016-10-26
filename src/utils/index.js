@@ -17,3 +17,10 @@ export const formatAsCurrency = (num, iso) => {
     minimumFractionDigits: 0,
   });
 };
+
+export function* entries(obj) {
+  const keys = Object.keys(obj);
+  for (const key of keys) {
+    yield [key, obj[key]];
+  }
+}

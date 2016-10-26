@@ -1,17 +1,17 @@
 import React, { PropTypes } from 'react';
 import _ from 'lodash';
-import { formatAsCurrency } from '../../utils';
+import { formatAsCurrency, entries } from '../../utils';
 
 const PPCurrency = (WrappedComponent) => {
   function PPCurrency(props) {
     const { unit = 'USD' } = props;
-    const formattedProps = Object.keys(props).reduce((obj, key) => {
-      if (_.isNumber(props[key])) {
-        obj[key] = formatAsCurrency(props[key], unit);
-        return obj;
+    const formattedProps = {};
+
+    for (const [key, value] of entries(props)) {
+      if (_.isNumber(value)) {
+        formattedProps[key] = formatAsCurrency(props[key], unit);
       }
-      return obj;
-    }, {});
+    }
 
     return <WrappedComponent {...props} formattedProps={formattedProps} />;
   }
