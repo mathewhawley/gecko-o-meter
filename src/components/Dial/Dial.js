@@ -25,7 +25,7 @@ const Dial = ({ min, max, value, formattedProps = {} }) => {
             textAnchor='middle'
             key='value'
           >
-            {formattedProps.value ? formattedProps.value : value}
+            {formattedProps.value || value}
           </text>
         </Transition>
 
