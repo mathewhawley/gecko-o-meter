@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "lodash": "^4.16.6",
+    "lodash": "^4.17.2",
     "normalize.scss": "^0.1.0",
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.3.2",
