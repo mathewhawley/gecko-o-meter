@@ -1,5 +1,5 @@
 # gecko-o-meter
-[![dependencies Status](https://david-dm.org/mathewhawley/gecko-o-meter/status.svg)](https://david-dm.org/mathewhawley/gecko-o-meter) [![devDependencies Status](https://david-dm.org/mathewhawley/gecko-o-meter/dev-status.svg)](https://david-dm.org/mathewhawley/gecko-o-meter?type=dev)
+[![Build Status](https://travis-ci.org/mathewhawley/gecko-o-meter.svg?branch=master)](https://travis-ci.org/mathewhawley/gecko-o-meter) [![dependencies Status](https://david-dm.org/mathewhawley/gecko-o-meter/status.svg)](https://david-dm.org/mathewhawley/gecko-o-meter) [![devDependencies Status](https://david-dm.org/mathewhawley/gecko-o-meter/dev-status.svg)](https://david-dm.org/mathewhawley/gecko-o-meter?type=dev)
 
 ![gecko-o-meter](gecko-o-meter.png)
 
