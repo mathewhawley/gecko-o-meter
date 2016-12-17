@@ -19,7 +19,7 @@
     "autoprefixer": "^6.5.4",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.20.0",
-    "babel-loader": "^6.2.7",
+    "babel-loader": "^6.2.10",
     "babel-plugin-transform-class-properties": "^6.16.0",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-polyfill": "^6.20.0",
