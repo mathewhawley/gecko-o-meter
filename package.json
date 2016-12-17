@@ -16,7 +16,7 @@
   "author": "Mathew Hawley",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^6.5.3",
+    "autoprefixer": "^6.5.4",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.20.0",
     "babel-loader": "^6.2.7",
