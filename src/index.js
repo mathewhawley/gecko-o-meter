@@ -7,7 +7,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'lodash';
 import fetch from 'isomorphic-fetch';
-import GeckoOMeter from 'components/GeckoOMeter';
+import GeckoOMeter from './components/GeckoOMeter';
 import './styles/main';
 
 ReactDOM.render(
