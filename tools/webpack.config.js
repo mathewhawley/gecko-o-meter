@@ -21,43 +21,50 @@ const config = {
     filename: 'bundle.js',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         include: PATHS.src,
       },
       {
         test: /\.scss$/,
-        loaders: [
-          'style',
-          `css?${JSON.stringify({
-            modules: true,
-            sourceMap: true,
-            localIdentName: '[name]__[local]__[hash:base64:5]',
-          })}`,
-          'postcss',
-          'sass?sourceMap',
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: true,
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+            },
+          },
+          { loader: 'postcss-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
         include: PATHS.src,
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: `file-loader?${JSON.stringify({
+        loader: 'file-loader',
+        options: {
           name: '[path][name].[ext]',
-        })}`,
+        },
       },
     ],
   },
   devtool: 'source-map',
   resolve: {
-    root: PATHS.src,
-    extensions: ['', '.js', '.scss'],
+    extensions: ['.js', '.scss'],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
-  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
 };
 
 export default config;
