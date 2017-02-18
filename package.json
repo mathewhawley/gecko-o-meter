@@ -37,11 +37,11 @@
     "postcss-loader": "^1.2.1",
     "node-sass": "^4.3.0",
     "react-addons-test-utils": "^15.3.2",
-    "sass-loader": "^5.0.1",
+    "sass-loader": "^6.0.1",
     "sinon": "^1.17.6",
     "style-loader": "^0.13.1",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",
